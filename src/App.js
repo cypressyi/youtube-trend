@@ -1,21 +1,38 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { onFetchData } from './actions/index'
+
+import SelectForm from './components/SelectForm'
+import ResultList from './components/ResultList'
+import './App.css'
 
 class App extends Component {
+  componentDidMount() {
+    this.props.onFetchData()
+  }
+
   render() {
+    const { trendList } = this.props
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <SelectForm />
+        <ResultList
+          videoList={trendList}
+        />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+const mapStateToProps = store => ({
+  trendList: store.trendList,
+})
+
+const mapDispatchToProps = (dispatch) =>(
+  bindActionCreators({ onFetchData }, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
+
