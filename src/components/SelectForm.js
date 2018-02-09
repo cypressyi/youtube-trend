@@ -14,9 +14,15 @@ const SearchForm = ({ onFetchData }) => {
   return (
     <div>
       <select ref={(el) => { selectValue = el }} onChange={handleOnchange}>
-        <option value="TW">TW</option>
-        <option value="US">US</option>
-        <option value="CA">CA</option>
+        <option value="TW">Taiwan</option>
+        <option value="DE">Germany</option>
+        <option value="HK">Hong Kong</option>
+        <option value="IN">India</option>
+        <option value="JP">Japan</option>
+        <option value="MY">Malaysia</option>
+        <option value="KR">South Korea</option>
+        <option value="GB">United Kingdom</option>
+        <option value="US">USA</option>
       </select>
     </div>
   )
