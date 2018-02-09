@@ -1,8 +1,16 @@
 import React from 'react'
 
-function VideoItem({ text }) {
+function VideoItem({
+  url,
+  title,
+  channelTitle,
+  description,
+  publishedAt,
+  thumbnails,
+  viewCount,
+}) {
   return (
-    <li>{text}</li>
+    <li>{title}</li>
   )
 }
 

@@ -1,4 +1,4 @@
-import { INIT_DATA, FETCH_DATA, SELECT_REGION } from '../constants/actionTypes'
+import { INIT_DATA, FETCH_DATA } from '../constants/actionTypes'
 
 export const onInitData = (data) => (
   {
@@ -7,17 +7,10 @@ export const onInitData = (data) => (
   }
 )
 
-export const onFetchData = (payload) => (
+export const onFetchData = (region) => (
   {
     type: FETCH_DATA,
-    payload,
+    region,
     cb: (response, dispatch) => dispatch(onInitData(response)),
-  }
-)
-
-export const onSelectRegion = (payload) => (
-  {
-    type: SELECT_REGION,
-    payload,
   }
 )

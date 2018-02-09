@@ -2,13 +2,13 @@ import React from 'react'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { onSelectRegion } from '../actions/index'
+import { onFetchData } from '../actions/index'
 
-const SearchForm = ({ onSelectRegion }) => {
+const SearchForm = ({ onFetchData }) => {
   let selectValue
 
   function handleOnchange() {
-    onSelectRegion({ region: selectValue.value })
+    onFetchData(selectValue.value)
   }
 
   return (
@@ -22,13 +22,9 @@ const SearchForm = ({ onSelectRegion }) => {
   )
 }
 
-const mapStateToProps = store => ({
-  regionOption: store.regionOption.region,
-})
-
 const mapDispatchToProps = (dispatch) =>(
-  bindActionCreators({ onSelectRegion }, dispatch)
+  bindActionCreators({ onFetchData }, dispatch)
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchForm)
+export default connect(null, mapDispatchToProps)(SearchForm)
 

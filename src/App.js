@@ -10,7 +10,7 @@ import './App.css'
 
 class App extends Component {
   componentDidMount() {
-    this.props.onFetchData()
+    this.props.onFetchData('TW')
   }
 
   render() {
