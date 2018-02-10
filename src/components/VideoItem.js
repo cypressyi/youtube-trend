@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image as ImageComponent, Item, Label, Transition } from 'semantic-ui-react'
+import { Item, Label, Transition } from 'semantic-ui-react'
 import formatView from '../common/viewFormat'
 import moment from 'moment'
 
