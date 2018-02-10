@@ -12,6 +12,7 @@ function ResultList({ videoList }) {
           const { viewCount } = item.statistics
           return (
             <VideoItem
+              key={id}
               url={url}
               title={title}
               channelTitle={channelTitle}

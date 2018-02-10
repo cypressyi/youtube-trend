@@ -1,13 +1,12 @@
 import { FETCH_DATA } from '../constants/actionTypes'
 
 const fetchData = (store) => (next) => (action) => {
-  
-  const REGION = action.region
+  let region = action.region || 'tw'
   const API_KEY = 'AIzaSyAuDRqtHLzXE2yz0rAvNnOwy5XzYn1GK3k'
-  const API_URL = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&maxResults=50&chart=mostPopular&key=${API_KEY}&regionCode=${REGION}`
+  let apu_url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&maxResults=50&chart=mostPopular&key=${API_KEY}&regionCode=${region}`
   
   if (action.type !== FETCH_DATA) return next(action)
-  fetch( API_URL, {
+  fetch( apu_url, {
     method: 'GET'
   })
   .then((response) => {

@@ -1,0 +1,28 @@
+.App {
+  margin: 50px 0;
+}
+
+.title {
+  font-size: 4rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 727px) {
+  .App {
+    margin: 20px 0;
+  }
+  .header {
+    font-size: 3rem;
+  }
+}
+
+.selectform {
+  margin-top: 15px;
+  margin: 20px 0;
+}
+
+.video-description {
+  max-height: 3.6rem;
+  line-height: 1.8rem !important;
+  overflow: hidden;
+}

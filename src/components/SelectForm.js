@@ -1,29 +1,33 @@
 import React from 'react'
 
+import { Dropdown } from 'semantic-ui-react'
+
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { onFetchData } from '../actions/index'
+import countryOptions from '../common/region'
 
 const SearchForm = ({ onFetchData }) => {
   let selectValue
 
   function handleOnchange() {
-    onFetchData(selectValue.value)
-  }
+    onFetchData(selectValue)
+  }  
 
   return (
     <div>
-      <select ref={(el) => { selectValue = el }} onChange={handleOnchange}>
-        <option value="TW">Taiwan</option>
-        <option value="DE">Germany</option>
-        <option value="HK">Hong Kong</option>
-        <option value="IN">India</option>
-        <option value="JP">Japan</option>
-        <option value="MY">Malaysia</option>
-        <option value="KR">South Korea</option>
-        <option value="GB">United Kingdom</option>
-        <option value="US">USA</option>
-      </select>
+      <Dropdown
+        className="selectform"
+        placeholder='選擇地區'
+        defaultValue="tw"
+        fluid
+        search
+        selection
+        options={countryOptions}
+        onChange={(e, { value }) => {
+          selectValue = value; handleOnchange()}
+        }
+      />
     </div>
   )
 }
